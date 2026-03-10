@@ -1,0 +1,8 @@
+{
+  "name": "opentui-md-wrap-demo",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "pip3 install --user ansitoimg",
+  "remoteUser": "root"
+}
