@@ -18,7 +18,8 @@ scripts/capture.sh --tmux-columns 40 --out-png ./tmp/demo-40.png
 
 ## Devcontainer
 
-This repo includes a devcontainer config that installs:
+This repo includes a devcontainer config (`.devcontainer/devcontainer.json`) and Dockerfile per GitHub/Codespaces guidance.
+It installs:
 - tmux
 - wkhtmltopdf (wkhtmltoimage)
 - python3 + pip (ansitoimg)
@@ -27,7 +28,7 @@ This repo includes a devcontainer config that installs:
 
 Steps:
 1. Open in a devcontainer or Codespaces.
-1. Run `pip3 install --user ansitoimg` if `postCreateCommand` did not run.
+1. The `postCreateCommand` runs `pip3 install --user ansitoimg` when the container is created.
 1. Run the capture commands above.
 
 ## Files Produced
