@@ -22,13 +22,14 @@ This repo includes a devcontainer config (`.devcontainer/devcontainer.json`) and
 It installs:
 - tmux
 - wkhtmltopdf (wkhtmltoimage)
-- python3 + pip (ansitoimg)
+- python3 + pipx (ansitoimg)
 - bun
 - CJK fonts
 
 Steps:
 1. Open in a devcontainer or Codespaces.
-1. The `postCreateCommand` runs `pip3 install --user ansitoimg` when the container is created.
+1. The `postCreateCommand` runs `pipx install ansitoimg` when the container is created.
+1. `PATH` includes `/root/.local/bin` so the `ansitoimg` CLI is available.
 1. Run the capture commands above.
 
 ## Files Produced

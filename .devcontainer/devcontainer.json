@@ -3,6 +3,9 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "pip3 install --user ansitoimg",
+  "containerEnv": {
+    "PATH": "/root/.local/bin:/root/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "postCreateCommand": "pipx install ansitoimg",
   "remoteUser": "root"
 }
