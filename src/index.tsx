@@ -22,60 +22,13 @@ function buildMarkdownContent(): string {
 }
 
 /**
- * Builds transcript-style entries for the demo.
- */
-function buildTranscriptEntries(): Array<{ kind: 'markdown' | 'text'; content: string }> {
-  return [
-    { kind: 'markdown', content: buildMarkdownContent() },
-    { kind: 'text', content: '' },
-    { kind: 'text', content: '> ' },
-  ];
-}
-
-/**
- * Renders one transcript entry.
- */
-function renderEntry(entry: { kind: 'markdown' | 'text'; content: string }): React.ReactNode {
-  if (entry.kind === 'markdown') {
-    return <markdown content={entry.content} conceal />;
-  }
-
-  return <text>{entry.content}</text>;
-}
-
-/**
  * Renders the demo UI using a layout similar to the main app:
- * scrollable transcript area + input bar spacer.
+ * minimal single markdown block.
  */
 function App(): React.ReactNode {
-  const entries = buildTranscriptEntries();
-
   return (
     <box flexDirection="column" width="100%" height="100%">
-      <box flexGrow={1} minHeight={1}>
-        <scrollbox
-          scrollY
-          stickyScroll
-          stickyStart="bottom"
-          focusable={false}
-          viewportCulling
-          wrapperOptions={{ width: '100%', height: '100%' }}
-          viewportOptions={{ width: '100%', height: '100%' }}
-          contentOptions={{ width: '100%', flexDirection: 'column' }}
-        >
-          <box flexDirection="column" width="100%" paddingLeft={2} paddingRight={2}>
-            {entries.map((entry, index) => (
-              <box key={`entry-${index}`} width="100%">
-                {renderEntry(entry)}
-              </box>
-            ))}
-          </box>
-        </scrollbox>
-      </box>
-      <box height={1} />
-      <box paddingLeft={2} paddingRight={2} height={1}>
-        <text>{'> '}</text>
-      </box>
+      <markdown content={buildMarkdownContent()} conceal />
     </box>
   );
 }
