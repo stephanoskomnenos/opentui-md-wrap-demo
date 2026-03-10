@@ -9,10 +9,9 @@ import type React from 'react';
 function buildMarkdownContent(): string {
   return [
     '### 示例标题',
-    '- 这是用于复现的中文行：在aber (“但”)引入的转折从句前表示让步：虽然，的确',
-    '- 这是用于复现的中文行：当fullwidth字符刚好在边界处wrap时可能出现重复。',
-    '',
-    '- This is a sample sentence, 用于说明中英混排的换行行为。',
+    '- 在aber (“但”)引入的转折从句前表示让步：虽然，的确',
+    '- Second line: brief English, 中文补充更长的说明细节与背景，确保内容足够长。',
+    '- Third line: short EN, 中文描述进一步扩展到更多层面与示例，用于测试换行。',
   ].join('\n');
 }
 
